@@ -1,0 +1,31 @@
+{
+  "name": "natural-grid",
+  "version": "0.1.0",
+  "authors": [
+    "Morris Singer <morrissinger@gmail.com>"
+  ],
+  "description": "A flex-box-powered grid system based on the Golden Ratio",
+  "main": "css/natural-grid.css",
+  "keywords": [
+    "css",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web",
+    "grid",
+    "bootstrap",
+    "foundation",
+    "golden-ratio"
+  ],
+  "license": "MIT",
+  "homepage": "http://morrissinger.github.io/natural-grid",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

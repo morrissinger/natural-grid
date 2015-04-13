@@ -1,0 +1,7 @@
+**/.idea
+**/node_modules
+**/.sass-cache
+**/bower_components
+**/npm-debug.log
+**/tmp
+**/.DS_Store

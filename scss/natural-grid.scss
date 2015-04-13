@@ -1,0 +1,88 @@
+$sizes: (
+				(1),
+				(0.61803, 0.38197),
+				(0.38197, 0.38197, 0.23607),
+				(0.38197, 0.23607, 0.23607, 0.14590),
+				(0.23607, 0.23607, 0.23607, 0.14590, 0.14590),
+				(0.23607, 0.23607, 0.14590, 0.14590, 0.14590, 0.09017)
+);
+
+
+$divisions: 1, 2, 3, 4, 5, 6;
+$widths: ('lg': 1200, 'md': 992, 'sm': 768, 'xs': 480);
+
+@mixin sizer ($numberOfDivisions: 1, $size: 1) {
+	flex: nth(nth($sizes, $numberOfDivisions), $size);
+	min-width: percentage(nth(nth($sizes, $numberOfDivisions), $size));
+	flex-grow: 0;
+}
+
+
+[class^="ng-"] {
+	display: flex;
+	width: 100%;
+	flex-flow: row wrap;
+
+	& > .col {
+		flex: 100;
+		min-width: 100%;
+		display: flex;
+		flex-flow: column nowrap;
+
+		.cell {
+			flex: 1;
+		}
+
+	}
+}
+
+
+[class^="ng-"][class$="-1"]> .col {
+	@include sizer(1, 1);
+}
+
+@each $divisionNumber in $divisions {
+	.ng-wrap-#{$divisionNumber} {
+		@for $i from 1 through $divisionNumber {
+			@each $label, $width in $widths {
+				&.ng-#{$label}-#{$i} {
+					@if ($divisionNumber > ($i)) {
+						@for $j from ($i + 1) through ($divisionNumber) {
+
+							& > .col:nth-child(#{($j)}) {
+
+								@if (($divisionNumber - $i) < $i) {
+									$set: ($divisionNumber - $i);
+								} @else {
+									$set: $i;
+								}
+								$size: (($j - $i - 1) % $i + 1);
+
+								@media (min-width: #{$width}px) {
+									@include sizer($set, $size);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@each $divisionNumber in $divisions {
+	@each $label, $width in $widths {
+		[class*="ng-wrap-"].ng-#{$label}-#{$divisionNumber} {
+			& > .col {
+				@for $i from 1 through $divisionNumber {
+					&:nth-child(#{$i}) {
+						@media (min-width: #{$width}px) {
+							@include sizer($divisionNumber, $i);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
