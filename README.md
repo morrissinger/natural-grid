@@ -81,7 +81,7 @@ The following shows how to set up a layout with four columns on large-width view
     </div>
   </div>
 </div>
-```html
+```
 
 ###Nested Layouts
 You can nest layouts inside of each other to create special combinations of sizes. Instead of defining a `cell` within a column, define another layout inside of the column using the rules, above.
@@ -124,7 +124,7 @@ The following example would define a nested layout of three columns inside the f
     </div>
   </div>
 </div>
-```html
+```
 
 ###Adjust Spacing Between Regions
 The grid comes with no opinion about the spacing you would like between regions. It is recommended you choose something based on the Golden Ratio (of course). Nevertheless, you will have to style this yourself. Doing so is fairly trivial. Just add a CSS rule that sets margins on the `cell` class. For example
@@ -135,4 +135,4 @@ The grid comes with no opinion about the spacing you would like between regions.
   padding: 24px; /* Padding within a cell */
 }
 
-```html
+```
