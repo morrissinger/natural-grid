@@ -1,0 +1,269 @@
+<html>
+	<head>
+		<link href='css/natural-grid.css' rel='stylesheet' type='text/css'>
+		<link href='css/index.css' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300|Roboto:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<title>Natural Grid | A flex-box-pwered grid system based on the Golden Ratio</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div class="title">
+			<h1>
+				Natural Grid
+				<small>A flex-box-powered grid system based on the Golden Ratio</small>
+			</h1>
+		</div>
+		<div class="container">
+			<div class="ng-xs-1 ng-wrap-1">
+				<div class="col main">
+					<div class="ng-md-2 ng-wrap-2">
+						<div class="col">
+							<div class="cell">
+								<h2>Bringing Renaissance-Era Sensibility to Web Layout</h2>
+								<p class="lead">Throughout human history, artists and philosophers have been inspired by the Golden Ratio.</p>
+								<p>This ratio is widely understood as producing visually pleasing patterns when employed in layout objects out in space. One can find manifestations of this ratio in so much of nature, from the spirals of galaxies to the proportions of the human face.</p>
+								<p>Nevertheless, the grid systems that we use ignore this principle, in favor of a multi-column, symmetrical approach to layout. This produces results that are passable, but none that are quite as inspiring as golden-proportional regions.</p>
+								<p>This grid system represents the first attempt at using the Golden Ratio as the predominant layout rule in a grid system.</p>
+								<hr />
+								<div style="display: flex; flex-flow: column no-wrap;">
+									<a class="btn hidden-xs" href style="flex: 1; margin-right: 16px;">Download as .zip</a>
+									<a class="btn hidden-xs" href style="flex: 1; margin-right: 16px;">Download as .tar.gz</a>
+									<a class="btn" href style="flex: 1; margin-right: 0;"><i class="fa fa-github"></i> View on GitHub</a>
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="cell" style="background: url('img/golden-spiral-example.png'); background-size: cover; min-height: 360px;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="ng-xs-1 ng-wrap-1">
+				<div class="col">
+					<div class="cell">
+						<h2>Getting Started</h2>
+						<p>Install it via bower:</p>
+						<p><pre><code>$ bower install natural-grid</code></pre></p>
+						<p>Add dependencies to the <code>&lt;head&gt;</code> section of your main html:</p>
+						<p><pre><code>&lt;link rel="stylesheet" href="bower_components/ng/css/natural-grid.min.css"&gt;</code></pre></p>
+						<p>If you don't use bower, you can manually download and unpack.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="ng-xs-1 ng-wrap-1">
+				<div class="col">
+					<div class="cell">
+						<h2>Usage</h2>
+						<h3>Basic Usage</h3>
+						<p>The following is a very basic example:</p>
+<pre><code>&lt;div class="ng-xs-2 ng-wrap-2"&gt;
+  &lt;div class="col"&gt;
+    &lt;div class="cell"&gt;
+
+      &lt;!-- First region content--&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="col"&gt;
+    &lt;div class="cell"&gt;
+
+      &lt;!-- Second region content--&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+						<p>Start by defining a row. You will need to know:
+							<ol>
+								<li>how many regions you want to divide the row into at the <em>maximum</em> width; and</li>
+								<li>how many regions you want to divide the page into at any other screen width.</li>
+							</ol>
+						</p>
+
+						<p>The first of these data is appended to the class <code>ng-wrap-</code> (in the above example, it's <code>ng-wrap-2</code>). The second of these data is appended to the class <code>ng-</code> with a minimum screen width for that rule. So, in the above example, extra-small screens and larger should show the row with two columns (e.g., <code>ng-xs-2</code>. The available breakpoints are <code>xs</code>, <code>sm</code>, <code>md</code>, and <code>lg</code>. </p>
+
+						<p>Inside of each column, you need to wrap the entire region in a div with the class <code>cell</code>.</p>
+
+						<h3>Multipe Breakpoints</h3>
+						<p>You can combine multiple rules on the same row (e.g., <code>ng-sm-2 ng-md-4 ng-lg-6</code>. Any screen width below the smallest one for which you define a rule will render the layout as a single-column with stacked regions. This aspect of the grid system is similar to other popular grid systems such as <a href="http://getbootstrap.com/css/#grid" target="_blank">Bootstrap</a> and <a href="http://foundation.zurb.com/grid.html" target="_blank">Foundation</a>. In other words, the class <code>ng-xs-1</code> is presumed unless you specify something to the contrary.</p>
+
+						<p>The following shows how to set up a layout with four columns on large-width viewports, three columns on medium-width viewports, two columns on small-width view ports, and one column on extra-small-width viewports:</p>
+<pre><code>&lt;div class="ng-sm-2 col-md-3 col-lg-4 ng-wrap-4"&gt;
+  &lt;div class="col"&gt;
+    &lt;div class="cell"&gt;
+
+      &lt;!-- First region content--&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="col"&gt;
+    &lt;div class="cell"&gt;
+
+      &lt;!-- Second region content--&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="col"&gt;
+    &lt;div class="cell"&gt;
+
+      &lt;!-- Third region content--&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="col"&gt;
+    &lt;div class="cell"&gt;
+
+      &lt;!-- Fourth region content--&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+						<h3>Nested Layouts</h3>
+						<p>You can nest layouts inside of each other to create special combinations of sizes. Instead of defining a <code>cell</code> within a column, define another layout inside of the column using the rules, above.</p>
+						<p>The following example would define a nested layout of three columns inside the first cell in a layout with two columns:</p>
+<pre><code>&lt;div class="ng-xs-2 ng-wrap-2"&gt;
+  &lt;div class="col"&gt;
+
+    &lt;div class="ng-xs-3 ng-wrap-3"&gt;
+      &lt;div class="col"&gt;
+        &lt;div class="cell"&gt;
+
+          &lt;!-- First sub-region content--&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="col"&gt;
+        &lt;div class="cell"&gt;
+
+          &lt;!-- Second sub-region content--&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="col"&gt;
+        &lt;div class="cell"&gt;
+
+          &lt;!-- Third sub-region content--&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class="col"&gt;
+    &lt;div class="cell"&gt;
+
+      &lt;!-- Second main region content--&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+						<h3>Adjust Spacing Between Regions</h3>
+						<p>The grid comes with no opinion about the spacing you would like between regions. It is recommended you choose something based on the Golden Ratio (of course). Nevertheless, you will have to style this yourself. Doing so is fairly trivial. Just add a CSS rule that sets margins on the <code>cell</code> class. For example</p>
+<pre><code>[class^="ng-"]  > .col > .cell {
+  margin: 16px; /* Space between cells */
+  padding: 24px; /* Padding within a cell */
+}
+</code></pre>
+					</div>
+				</div>
+			</div>
+
+			<h2>Examples</h2>
+
+			<h3>Three-Column Layout (Wraps to Two, Then to One)</h3>
+			<p>This three-column layout is responsive, and wraps at narrow widths. At small widths, it will wrap so that the right-most column moves underneath the other two and displays full-width. At the smallest of screen widths, all three columns appear as full-width, stacked cells.</p>
+			<div class="ng-sm-2 ng-md-3 ng-wrap-3">
+				<div class="col">
+					<div class="cell">
+						<p><strong>1.</strong> Beef ribs cow chicken tail pancetta, ground round ham hock pork chop beef filet mignon picanha porchetta t-bone. Pig cow drumstick, pork short ribs ground round fatback sirloin turducken landjaeger. Pork belly capicola pastrami, turducken prosciutto doner swine frankfurter sirloin jerky biltong filet mignon ribeye chicken short loin. Picanha corned beef fatback venison.</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="cell">
+						<p><strong>2.</strong> Beef ribs cow chicken tail pancetta, ground round ham hock pork chop beef filet mignon picanha porchetta t-bone. Pig cow drumstick, pork short ribs ground round fatback sirloin turducken landjaeger. Pork belly capicola pastrami, turducken prosciutto doner swine frankfurter sirloin jerky biltong filet mignon ribeye chicken short loin. Picanha corned beef fatback venison.</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="cell">
+						<p><strong>3.</strong> Beef ribs cow chicken tail pancetta, ground round ham hock pork chop beef filet mignon picanha porchetta t-bone. Pig cow drumstick, pork short ribs ground round fatback sirloin turducken landjaeger.</p>
+					</div>
+				</div>
+			</div>
+
+			<h3>Four-Column Layout (Wraps to Three, Then to Two, Then One)</h3>
+			<p>This four-column layout is responsive, and wraps at narrow widths. At medium widths, it will wrap so that the right-most column moves underneath the other three and displays full-width. At small screen widths, it will wrap the right-most two columns underneath the first two, so that columns three and four display at the same widths as columns one and two, respectively. At the smallest of screen widths, all four columns appear as full-width, stacked cells.</p>
+			<div class="ng-sm-2 ng-md-3 ng-lg-4 ng-wrap-4">
+				<div class="col">
+					<div class="cell">
+						<p><strong>1.</strong> Beef ribs cow chicken tail pancetta, ground round ham hock pork chop beef filet.</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="cell">
+						<p><strong>2.</strong> Beef ribs cow chicken tail.</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="cell">
+						<p><strong>3.</strong> Beef ribs cow chicken tail.</p>
+					</div>
+				</div>
+				<div class="col">
+					<div class="cell">
+						<p><strong>4.</strong> Beef.</p>
+					</div>
+				</div>
+			</div>
+
+			<h3>Two-Column Layout with Nesting (Wraps)</h3>
+			<p>Though this looks like a five-column layout, it is actually a two-column layout, each cell of which has a nested layout. The overall effect is five columns at large widths.</p>
+			<p>This two-column layout, however, contains a nested three-column layout in the first column and a nested two-column layout in the second column. The nested layouts wrap to one column at small widths, and the whole thing stacks at the smallest screen widths.</p>
+			<p>Background colors are added to assist in understanding the example.</p>
+			<div class="ng-sm-2 ng-wrap-2">
+				<div class="col">
+					<div class="ng-md-3 ng-wrap-3">
+						<div class="col">
+							<div class="cell green">
+								<p>1-A</p>
+							</div>
+						</div>
+						<div class="col">
+							<div class="cell green">
+								<p>1-B</p>
+							</div>
+						</div>
+						<div class="col">
+							<div class="cell green">
+								<p>1-C</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="ng-md-2 ng-wrap-2">
+						<div class="col">
+							<div class="cell light-green">
+								<p>2-A</p>
+							</div>
+						</div>
+						<div class="col">
+							<div class="cell light-green">
+								<p>2-B</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			Copyright <a href="http://github.com/morrissinger" target="_blank" rel="author">Morris Singer</a>, 2015. Available under MIT license.
+		</footer>
+	</body>
+</html>
